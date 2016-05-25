@@ -1,7 +1,9 @@
 # git_left
 
 git_left aims to help you clean up your lingering git repositories. There are
-better ways I'm sure. 
+better ways I'm sure.
+
+The code is straightforward but **use at your own risk**.
 
 ## Installation
 
