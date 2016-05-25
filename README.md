@@ -3,7 +3,7 @@
 git_left aims to help you clean up your lingering git repositories. There are
 better ways I'm sure.
 
-The code is straightforward but **use at your own risk**.
+The code is straightforward but **use at your own risk**. I didn't write any tests.
 
 ## Installation
 
