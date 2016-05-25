@@ -16,6 +16,8 @@ module GitLeft
     def self.delete(branch)
       @@deleted_branches ||= []
       @@deleted_branches << branch.name
+
+      branch.delete
     end
 
     def self.branches_to_omit
