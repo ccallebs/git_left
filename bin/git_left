@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "git_left"
+require_relative '../lib/git_left'
 
 GitLeft::CLI.start(ARGV)
