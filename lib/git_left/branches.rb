@@ -32,8 +32,8 @@ module GitLeft
       @@skipped_branches ||= []
       @@deleted_branches ||= []
 
-      @@all_branches = Git.open('.').branches.to_a
-      @@all_branches.select { |b| !branches_to_omit.include?(b.name) }
+      @@all_branches ||= Git.open('.').branches.to_a
+      @@all_branches.select { |b| !branches_to_omit.include?(b.name) && !b.remote }
     end
   end
 end
