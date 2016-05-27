@@ -5,7 +5,13 @@ module GitLeft
   class CLI < Thor
     desc "begin", "Begin swiping left"
     def begin(opts = {})
-      puts "Time to clean up your #{GitLeft::Branches.branches.count} local branches..."
+      puts "Before we begin, prune remote branches? (y/n)"
+      if STDIN.getch == 'y'
+        puts "Pruning remote branches..."
+        `git remote prune origin`
+      end
+
+      puts "Okay, time to clean up your #{GitLeft::Branches.branches.count} local branches..."
 
       while(1) do
         begin
