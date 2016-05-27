@@ -13,13 +13,11 @@ module GitLeft
 
           if @random_branch.nil?
             puts "\nYou cleaned up all your branches!"
-            puts "\t#{GitLeft::Branches.skipped_branches.count} skipped"
-            puts "\t#{GitLeft::Branches.deleted_branches.count} deleted"
             break
           end
 
-          underlined = "\e[4m" << @random_branch.name << "\e[24m"
-          puts "\nDeciding time: #{underlined} (h to delete, l to skip, anything else to quit)\n"
+          @reporter = GitLeft::BranchReporter.new(@random_branch)
+          @reporter.report
 
           case GitLeft::KeyParser.new(STDIN.getch).action
           when :delete

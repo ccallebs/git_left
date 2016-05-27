@@ -1,5 +1,9 @@
 module GitLeft
   module Branches
+    def self.git_instance
+      @git_instance ||= Git.open('.')      
+    end
+
     def self.skipped_branches
       @@skipped_branches || []
     end
@@ -28,12 +32,16 @@ module GitLeft
       branches.sample
     end
 
+    def self.remote_branches
+      @remote_branches ||= git_instance.branches.remote
+    end
+
     def self.branches
       @@skipped_branches ||= []
       @@deleted_branches ||= []
 
-      @@all_branches ||= Git.open('.').branches.to_a
-      @@all_branches.select { |b| !branches_to_omit.include?(b.name) && !b.remote }
+      @@all_branches ||= git_instance.branches.local.to_a.map { |b| GitLeft::Branch.new(b) }
+      @@all_branches.select { |b| !branches_to_omit.include?(b.name) }
     end
   end
 end
