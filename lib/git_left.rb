@@ -1,3 +1,4 @@
+require_relative "git/lib"
 require_relative "git_left/version"
 require_relative "git_left/branch"
 require_relative "git_left/branch_reporter"
