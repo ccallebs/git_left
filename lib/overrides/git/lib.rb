@@ -1,5 +1,3 @@
-require 'git'
-
 module OverrideConfigList
   def config_list
     build_list = lambda do |path|
