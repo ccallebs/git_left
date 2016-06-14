@@ -43,6 +43,9 @@ module GitLeft
           GitLeft::Branches.skip(@random_branch)
         end
       end
+
+      puts "\t#{GitLeft::Branches.skipped_branches.count} skipped"    
+      puts "\t#{GitLeft::Branches.deleted_branches.count} deleted"
     end
   end
 end
