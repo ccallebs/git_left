@@ -53,7 +53,7 @@ module GitLeft
       puts "Are you absolutely sure you want to delete your #{GitLeft::Branches.branches.count} local branches? (y/n)"
 
       if STDIN.getch == 'y'
-        puts "I'm serious, this is not easily undone. Go through with it?"
+        puts "I'm serious, this is not easily undone. Go through with it? (y/n)"
 
         if STDIN.getch == 'y'
           puts "Okay..."
