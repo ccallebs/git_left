@@ -47,5 +47,23 @@ module GitLeft
       puts "\t#{GitLeft::Branches.skipped_branches.count} skipped"    
       puts "\t#{GitLeft::Branches.deleted_branches.count} deleted"
     end
+
+    desc "yolo", "Delete all branches"
+    def yolo(opts = {})
+      puts "Are you absolutely sure you want to delete your #{GitLeft::Branches.branches.count} local branches? (y/n)"
+
+      if STDIN.getch == 'y'
+        puts "I'm serious, this is not easily undone. Go through with it?"
+
+        if STDIN.getch == 'y'
+          puts "Okay..."
+
+          while branch = GitLeft::Branches.random_branch do
+            GitLeft::Branches.delete(branch)
+            puts "#{branch.name} deleted."
+          end
+        end
+      end
+    end
   end
 end
