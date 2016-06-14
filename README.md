@@ -17,10 +17,13 @@ Install it yourself:
 git_left begin
 ```
 
+Begins session to evaluate git branches and decide whether to delete them or
+save them for later.
+
 #### Sample session:
 
 ```
-➜  git_left git:(master) ./bin/git_left begin
+➜  git_left git:(master) git_left begin
 Time to clean up your 4 local branches...
 
 Deciding time: four-branch (h to delete, l to skip, anything else to quit)
@@ -38,6 +41,27 @@ three-branch skipped
 You cleaned up all your branches!
   3 skipped
   1 deleted
+```
+
+```
+git_left yolo
+```
+
+Deletes every local git branch in the current repository.
+
+#### Sample session:
+
+```
+➜  git_left git:(master) ✗ git_left yolo
+Are you absolutely sure you want to delete your 4 local branches? (y/n)
+I'm serious, this is not easily undone. Go through with it? (y/n)
+Okay...
+two-branch deleted.
+one-branch deleted.
+three-branch deleted.
+four-branch deleted.
+➜  git_left git:(master) ✗ git branch
+* master
 ```
 
 ## Development
