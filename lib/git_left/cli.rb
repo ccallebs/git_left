@@ -1,5 +1,4 @@
 require "thor"
-require "git"
 
 module GitLeft
   class CLI < Thor
