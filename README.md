@@ -11,7 +11,7 @@ Install it yourself:
 
     $ gem install git_left
 
-## Usage
+## Commands
 
 ```
 git_left begin
@@ -42,6 +42,8 @@ You cleaned up all your branches!
   3 skipped
   1 deleted
 ```
+
+-------
 
 ```
 git_left yolo
